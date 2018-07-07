@@ -14,6 +14,46 @@ namespace ASP_MVC_기초.Controllers
         public ActionResult Index()
         {
             ViewBag.theUsers = CInstance.theUserManager.GetUsers();
+            ViewBag.bFail = 0;
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(string aID, string aPW)
+        {
+            ViewBag.theUsers = CInstance.theUserManager.GetUsers();
+
+            CUser resUser;
+
+            int tmpBool = CInstance.theUserManager.CheckUser(aID, aPW, out resUser);
+
+            if(tmpBool == 1)
+            {
+                // 로그인 성공
+                Session["id"] = aID;
+                Session["user"] = resUser;
+
+                return RedirectToAction("Main");
+            }
+            else
+            {
+                ViewBag.bFail = 1;
+            }
+
+            return View();
+        }
+
+        public ActionResult Main()
+        {
+            if(Session["id"] == null)
+            {
+                return RedirectToAction("index");
+            }
+
+            CUser tmpUser = (CUser)Session["user"];
+
+            ViewBag.theID = tmpUser.theID;
+            ViewBag.theDate = tmpUser.theDate.ToString("yyyy.MM.dd");
 
             return View();
         }

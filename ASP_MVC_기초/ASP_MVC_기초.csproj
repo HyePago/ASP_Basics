@@ -121,6 +121,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Join.cshtml" />
     <Content Include="Views\Home\JoinOK.cshtml" />
+    <Content Include="Views\Home\Main.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

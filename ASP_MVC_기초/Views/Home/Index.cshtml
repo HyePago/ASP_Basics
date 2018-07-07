@@ -36,6 +36,19 @@
                 </tr>
             }
         </table>
+
+        @using(Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <p>ID : <input type="text" name="aID" id="ID" /> </p>
+            <p> PW : <input type="password" name="aPW" id="PW" /> </p>
+
+            <input type="submit" value="로그인" />
+        }
+
+        @if(ViewBag.bFail == 1)
+        {
+            <p> 로그인 실패입니다. </p>
+        }
     </div>
 </body>
 </html>

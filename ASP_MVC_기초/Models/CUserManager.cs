@@ -68,8 +68,27 @@ namespace ASP_MVC_기초.Models
             return resUsers;
         }
 
-        public int CheckUser(string ID, string PW)
+        public int CheckUser(string ID, string PW, out CUser aUser)
         {
+            Table<TUser3209> users = theUserContext.GetTable<TUser3209>();
+            IQueryable<TUser3209> tmpQ = from iter in users
+                                         where iter.theID == ID && iter.thePW == PW
+                                         select iter;
+
+            if(tmpQ.Count() > 0)
+            {
+                List<TUser3209> tmpUser = tmpQ.Take(1).ToList();
+                aUser = new CUser();
+                aUser.theID = tmpUser[0].theID;
+                aUser.thePW = tmpUser[0].thePW;
+                aUser.theName = tmpUser[0].theName;
+                aUser.theEMail = tmpUser[0].theEMail;
+                aUser.bSubscription = tmpUser[0].bSubscription == 1 ? true : false;
+                aUser.theDate = tmpUser[0].theDate;
+
+                return 1;
+            }
+            aUser = new CUser();
             return 0;
         }
     }
