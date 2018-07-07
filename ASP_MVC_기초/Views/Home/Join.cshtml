@@ -16,36 +16,43 @@
         <h2><a href="@Url.Action("Index", "Home")"><img src="../images/back.png" /></a></h2>
     </div>
 
+    @if(ViewBag.bFail == 1)
+    {
+        <p> 증복된 아이디가 있습니다. </p>
+    }
+
     @using (Html.BeginForm("Join", "Home"))
     {
-    <table>
-        <tr>
-            <td> 가입항목 </td>
-            <td> 내용 </td>
-        </tr>
-        <tr>
-            <td>아이디</td>
-            <td>@Html.TextBoxFor(x => x.theID, new { style = "width: 150px;" }) </td>
-        </tr>
-        <tr>
-            <td>비밀번호</td>
-            <td>@Html.TextBoxFor(x => x.thePW, new { style = "width: 150px;", @tyle = "password" })</td>
-        </tr>
-        <tr>
-            <td>이름</td>
-            <td>@Html.TextBoxFor(x => x.theName, new { style = "width: 150px;" }) </td>
-        </tr>
-        <tr>
-            <td>이메일</td>
-            <td>@Html.TextBoxFor(x => x.theEMail, new { style = "width: 150px;" }) </td>
-        </tr>
-        <tr>
-            <td>이메일수신동의</td>
-            <td>@Html.CheckBoxFor(x => x.bSubscription, new { style = "width: 150px;" }) </td>
-        </tr>
-    </table>
+        @Html.ValidationSummary(); //에러메시지 띄움
 
-    <input type="submit" value="가입하기" />
+        <table>
+            <tr>
+                <td> 가입항목 </td>
+                <td> 내용 </td>
+            </tr>
+            <tr>
+                <td>아이디</td>
+                <td>@Html.TextBoxFor(x => x.theID, new { style = "width: 150px;" }) </td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td>@Html.TextBoxFor(x => x.thePW, new { style = "width: 150px;", @tyle = "password" })</td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td>@Html.TextBoxFor(x => x.theName, new { style = "width: 150px;" }) </td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>@Html.TextBoxFor(x => x.theEMail, new { style = "width: 150px;" }) </td>
+            </tr>
+            <tr>
+                <td>이메일수신동의</td>
+                <td>@Html.CheckBoxFor(x => x.bSubscription, new { style = "width: 150px;" }) </td>
+            </tr>
+        </table>
+
+        <input type="submit" value="가입하기" />
     }
 
 

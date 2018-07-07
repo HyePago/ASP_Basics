@@ -24,6 +24,13 @@ namespace ASP_MVC_기초.Models
             tmpUser.theUniuqeID = 0;
             tmpUser.theDate = DateTime.Now; */
 
+            string tmpID = aUser.theID;
+            int tmpCount = theUserContext.TUser3209.Where(x => x.theID == tmpID).Count();
+            if(tmpCount > 0)
+            {
+                return 0;
+            }
+
             TUser3209 tmpUser = new TUser3209();
 
             tmpUser.theID = aUser.theID;

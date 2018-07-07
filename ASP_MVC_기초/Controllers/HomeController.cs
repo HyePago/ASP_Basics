@@ -60,11 +60,18 @@ namespace ASP_MVC_기초.Controllers
 
         public ActionResult Join()
         {
+            ViewBag.bFail = 0;
+
             return View();
         }
         [HttpPost]
         public ActionResult Join(CUser aUser)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(aUser);
+            }
+
             int tmpBool;
             tmpBool = CInstance.theUserManager.AddUser(ref aUser);
 
@@ -72,6 +79,8 @@ namespace ASP_MVC_기초.Controllers
             {
                 return RedirectToAction("JoinOK", aUser);
             }
+
+            ViewBag.bFail = 1;
 
             return View(aUser);
         }
