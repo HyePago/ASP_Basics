@@ -1,0 +1,41 @@
+﻿@using ASP_MVC_기초.Models
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <td>회원가입 링크</td>
+                <td>@Html.ActionLink("회원가입", "Join")</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>이름</td>
+                <td>이메일</td>
+            </tr>
+            
+            @foreach(CUser iter in ViewBag.theUsers)
+            {
+                <tr>
+                    <td>@iter.theID</td>
+                    <td>@iter.theName</td>
+                    <td>@iter.theEMail</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

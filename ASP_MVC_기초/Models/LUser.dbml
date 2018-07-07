@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Mirim2018" Class="LUserDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=14.63.199.209,5433;Initial Catalog=Mirim2018;User ID=mirim2018" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Mirim2018ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TUser3209" Member="TUser3209">
+    <Type Name="TUser3209">
+      <Column Name="theUniqueID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="theID" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="thePW" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="theName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="theEMail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="bSubscription" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="theDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

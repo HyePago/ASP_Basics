@@ -1,0 +1,24 @@
+﻿@model ASP_MVC_기초.Models.CUser
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>JoinOK</title>
+</head>
+<body>
+    <div> 
+        <p> 회원가입을 축하드립니다. </p>
+        <p> 가입일은 @ViewBag.theDate 입니다 </p>
+
+        <p> 정보확인 : @Model.theID / @Model.theEMail / @Model.theDate.ToLongDateString() </p>
+
+        <a href="@Url.Action("","")">Home</a>
+    </div>
+</body>
+</html>
